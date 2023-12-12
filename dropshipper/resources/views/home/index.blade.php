@@ -1,11 +1,17 @@
 @extends('layouts.app-master')
 
 @section('content')
+    {{-- <div class="bg-light p-5 rounded"> --}}
+        <div class="image-container">
+            <img src="/assets/img/banner.png" class="img-fluid banner" alt="Image 1">
+            <button class="btn btn-primary centered-button blinking-button">Join us!</button>
+          </div>
+    {{-- </div> --}}
     <div class="bg-light p-5 rounded">
         @auth
         <h1>Dashboard</h1>
         <p class="lead">Only authenticated users can access this section.</p>
-        <a class="btn btn-lg btn-primary" href="https://codeanddeploy.com" role="button">View more tutorials here &raquo;</a>
+        {{-- <a class="btn btn-lg btn-primary" href="https://codeanddeploy.com" role="button">View more tutorials here &raquo;</a> --}}
         @endauth
 
         @guest

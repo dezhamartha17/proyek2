@@ -3,7 +3,7 @@
 @section('content')
     <form method="post" action="{{ route('login.perform') }}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-        <img class="mb-4" src="{!! url('images/bootstrap-logo.svg') !!}" alt="" width="72" height="57">
+        <img class="mb-4" src="/assets/img/logo-png.png" alt="" width="100%" height="80%">
         
         <h1 class="h3 mb-3 fw-normal">Login</h1>
 
@@ -25,7 +25,7 @@
             @endif
         </div>
 
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+        <button class="w-100 btn btn-lg btn-warning" type="submit">Login</button>
         
         @include('auth.partials.copy')
     </form>
