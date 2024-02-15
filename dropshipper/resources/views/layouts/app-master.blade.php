@@ -12,6 +12,7 @@
     <link href="{!! url('assets/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet">
     <link href="{!! url('assets/css/fontawesome.min.css') !!}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <style>
       .navbar-market{
         background-color: #015eb6;
@@ -171,6 +172,32 @@
     .nav-men{
       margin-right: 20px;
     }
+
+    .text-menu{
+      padding-top: -20px;
+    }
+    .card {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+    .icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.notification {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px; /* Sesuaikan dengan ukuran yang diinginkan */
+  height: 10px;
+  background-color: red; /* Atur warna notifikasi */
+  border-radius: 50%; /* Membuat notifikasi menjadi bulat */
+  border: 2px solid #fff; /* Border putih untuk tampilan lebih jelas */
+}
     </style>
 
     
@@ -184,9 +211,54 @@
     <main class="container">
         @yield('content')
     </main>
+    <script>
+      function showForm() {
+          // Menampilkan formulir saat tombol pesan ditekan
+          document.getElementById('orderForm').style.display = 'block';
+      }
 
+      // Ambil elemen icon toko
+var storeIcon = document.getElementById('storeIcon');
+
+// Ambil elemen daftar data
+var storeList = document.getElementById('storeList');
+
+// Tambahkan event listener untuk menanggapi klik pada icon toko
+storeIcon.addEventListener('click', function() {
+    // Periksa apakah daftar data sedang ditampilkan atau tidak
+    if (storeList.style.display === 'none') {
+        // Jika tidak ditampilkan, tampilkan daftar data
+        storeList.style.display = 'block';
+    } else {
+        // Jika ditampilkan, sembunyikan daftar data
+        storeList.style.display = 'none';
+    }
+});
+        // Ambil data dari backend atau state aplikasi
+        const jumlahData = {{ $jumlahData }}; // Gantilah ini dengan data orderan dari backend atau state
+
+// Tentukan apakah notifikasi harus aktif
+const isNotificationActive = jumlahData > 0;
+
+// Dapatkan elemen notifikasi
+const notificationElement = document.getElementById('notification');
+
+// Atur tampilan notifikasi berdasarkan kondisi
+if (isNotificationActive) {
+  notificationElement.style.display = 'block';
+} else {
+  notificationElement.style.display = 'none';
+};
+
+
+  </script>
     <script src="{!! url('assets/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
     <script src="{!! url('assets/js/fontawesome.min.js') !!}"></script>
     <script src="https://kit.fontawesome.com/cb5dca3a01.js" crossorigin="anonymous"></script>
+    <!-- Tautan ke jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Tautan ke Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.1/umd/popper.min.js"></script>
   </body>
 </html>

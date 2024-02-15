@@ -4,7 +4,7 @@
     <form method="post" action="{{ route('register.perform') }}">
 
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-        <img class="mb-4" src="/assets/img/logo-png.png" alt="" width="80%" height="70%">
+        <img class="mb-4" src="/assets/img/logo-baleo.jpg" alt="" width="50%" height="40%">
         
         <h3 class="h3 mb-3 fw-normal">Register</h3>
 

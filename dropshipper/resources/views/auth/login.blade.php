@@ -3,7 +3,7 @@
 @section('content')
     <form method="post" action="{{ route('login.perform') }}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-        <img class="mb-4" src="/assets/img/logo-png.png" alt="" width="100%" height="80%">
+        <img class="mb-4" src="/assets/img/logo-baleo.jpg" alt="" width="50%" height="40%">
         
         <h1 class="h3 mb-3 fw-normal">Login</h1>
 
@@ -26,6 +26,7 @@
         </div>
 
         <button class="w-100 btn btn-lg btn-warning" type="submit">Login</button>
+        <a href="{{route('register.show')}}">Register</a>
         
         @include('auth.partials.copy')
     </form>
